@@ -29,15 +29,11 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 // Connect DB and start server
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('MongoDB connected');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch(err => {
-    console.error('MongoDB connection error:', err.message);
-    // Start server anyway for development without DB
-    app.listen(PORT, () => console.log(`Server running on port ${PORT} (no DB)`));
-  });
+// Start server immediately; attempt DB connection in background
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+mongoose.connect(process.env.MONGO_URI, { serverSelectionTimeoutMS: 5000 })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error (DB features unavailable):', err.message));
 
 module.exports = app;
