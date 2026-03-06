@@ -35,11 +35,11 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 // Connect DB and start server
 const PORT = process.env.PORT || 5000;
 let memoryMongo;
-
-// Start server immediately; attempt DB connection in background
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+let databaseInitPromise;
 
 const connectDatabase = async () => {
+  if (mongoose.connection.readyState === 1) return;
+
   const connectInMemoryMongo = async () => {
     // Fallback for local development so the project runs without external setup.
     memoryMongo = await MongoMemoryServer.create();
@@ -59,10 +59,21 @@ const connectDatabase = async () => {
       }
     }
 
+    if (process.env.VERCEL) {
+      throw new Error('MONGO_URI is required in Vercel environment.');
+    }
+
     await connectInMemoryMongo();
   } catch (err) {
     console.error('MongoDB connection error (DB features unavailable):', err.message);
   }
+};
+
+const ensureDatabaseConnection = () => {
+  if (!databaseInitPromise) {
+    databaseInitPromise = connectDatabase();
+  }
+  return databaseInitPromise;
 };
 
 const shutdown = async () => {
@@ -77,6 +88,16 @@ const shutdown = async () => {
 process.on('SIGINT', shutdown);
 process.on('SIGTERM', shutdown);
 
-connectDatabase();
+if (require.main === module) {
+  // Local development runtime.
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  ensureDatabaseConnection();
+}
 
-module.exports = app;
+const handler = async (req, res) => {
+  await ensureDatabaseConnection();
+  return app(req, res);
+};
+
+module.exports = handler;
+module.exports.app = app;
