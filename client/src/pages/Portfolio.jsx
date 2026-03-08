@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import api from '../utils/api'
+ 
 
 /* ── Typewriter hook ─────────────────────────────────────── */
 function useTypewriter(roles) {
@@ -112,9 +113,9 @@ function Hero() {
           <a href="#contact" className="btn btn-secondary" onClick={e=>{e.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})}}>Let's Talk</a>
         </div>
         <div className="hero-socials">
-          <a href="#" className="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
-          <a href="#" className="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="#" className="social-link" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0 0 24 4.59z"/></svg></a>
+          <a href="https://github.com/RajiSh21" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+          <a href="https://www.linkedin.com/in/rajishpande/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://wa.me/9779800890137" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.92 11.92 0 0 0 12.04 0C5.4 0 .02 5.37.02 12c0 2.12.55 4.2 1.6 6.03L0 24l6.17-1.61A11.96 11.96 0 0 0 12.04 24h.01c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.52-8.52zM12.05 21.97h-.01a9.94 9.94 0 0 1-5.06-1.39l-.36-.21-3.66.96.98-3.57-.23-.37a9.95 9.95 0 0 1-1.53-5.38c0-5.5 4.47-9.97 9.97-9.97 2.66 0 5.16 1.04 7.04 2.93a9.91 9.91 0 0 1 2.92 7.04c0 5.5-4.48 9.96-9.98 9.96zm5.47-7.45c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.46-.88-.79-1.48-1.77-1.65-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.11 3.22 5.1 4.52.71.31 1.27.5 1.71.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg></a>
         </div>
       </div>
       <div className="hero-illustration">
@@ -186,9 +187,20 @@ function About() {
 /* ── Education ─────────────────────────────────────────────── */
 function Education() {
   const items = [
-    { year:'2020 – 2024', degree:'B.Tech in Computer Science', school:'National Institute of Technology', grade:'CGPA: 9.1 / 10', desc:'Specialized in software engineering, algorithms, and distributed systems. Led the college\'s coding club and organized two national-level hackathons.' },
-    { year:'2018 – 2020', degree:'Higher Secondary Certificate (HSC)', school:'State Board of Higher Secondary Education', grade:'96.4%', desc:'Scored top marks in Mathematics, Physics, and Computer Science. Recipient of the State Merit Scholarship for academic excellence.' },
-    { year:'2023', degree:'AWS Certified Solutions Architect', school:'Amazon Web Services', grade:'Score: 892 / 1000', desc:'Earned professional cloud certification demonstrating expertise in designing scalable and resilient architectures on the AWS platform.' },
+    {
+      year:'2022 – Present',
+      degree:'B.E. in Computer Science and Engineering (Pursuing)',
+      school:'Nepal Engineering College, Changunarayan, Bhaktapur',
+      grade:'Affiliated to Pokhara University',
+      desc:'Currently pursuing a Bachelor of Engineering in Computer Science and Engineering, enrolled in 2022.'
+    },
+    {
+      year:'2020 – 2022',
+      degree:'Higher Secondary Education (NEB +2)',
+      school:'Premier College, Baneshwor',
+      grade:'Computer Science Major',
+      desc:'Completed NEB +2 from Premier College with Computer Science as a major, establishing a strong academic foundation.'
+    },
   ]
   return (
     <section id="education" className="section section-alt">
@@ -198,12 +210,14 @@ function Education() {
           {items.map((item, i) => (
             <div className="timeline-item" data-aos="" key={i}>
               <div className="timeline-dot"/>
-              <div className="timeline-content">
-                <span className="timeline-year">{item.year}</span>
-                <h3>{item.degree}</h3>
-                <p className="timeline-school">{item.school}</p>
-                <span className="timeline-grade">{item.grade}</span>
-                <p>{item.desc}</p>
+              <div className="timeline-card">
+                <div className="timeline-period">{item.year}</div>
+                <h3 className="timeline-title">{item.degree}</h3>
+                <p className="timeline-place">{item.school}</p>
+                <p className="timeline-desc">{item.desc}</p>
+                <div className="timeline-tags">
+                  <span className="tag tag-sm">{item.grade}</span>
+                </div>
               </div>
             </div>
           ))}
@@ -244,12 +258,33 @@ function Experience() {
 function Projects() {
   const [filter, setFilter] = useState('all')
   const projects = [
-    { emoji:'🛒', title:'ShopSphere', category:'web', desc:'A full-stack e-commerce platform with real-time inventory, payment integration via Stripe, and an admin dashboard.', tags:['React','Node.js','MongoDB','Stripe'], gh:'#', live:'#' },
-    { emoji:'🧠', title:'MediScan AI', category:'ml', desc:'Deep learning model that analyzes X-ray images to detect early signs of pneumonia with 96.3% accuracy.', tags:['Python','TensorFlow','Flask','OpenCV'], gh:'#', live:'#' },
-    { emoji:'📊', title:'DevDash', category:'web', desc:'Developer productivity dashboard aggregating GitHub stats, Jira tickets, and calendar events in one unified view.', tags:['React','GraphQL','TypeScript','OAuth'], gh:'#', live:'#' },
-    { emoji:'💪', title:'FitTrack', category:'mobile', desc:'Cross-platform fitness app with AI-powered workout suggestions, progress tracking, and social challenges.', tags:['React Native','Firebase','ML Kit','Node.js'], gh:'#', live:'#' },
-    { emoji:'💬', title:'ChatNest', category:'web', desc:'Real-time chat app with end-to-end encryption, file sharing, voice messages, and group channels.', tags:['Socket.io','React','Redis','WebRTC'], gh:'#', live:'#' },
-    { emoji:'🌍', title:'EcoSense', category:'ml', desc:'IoT + ML platform that predicts air quality levels using sensor data, weather APIs, and time-series forecasting models.', tags:['Python','IoT','LSTM','Grafana'], gh:'#', live:'#' },
+    {
+      emoji:'🏫',
+      title:'Smart Campus Web App',
+      category:'web',
+      desc:'A complete MERN stack web platform for campus management with student profiles, attendance, notices, events, and role-based admin dashboards.',
+      tags:['MongoDB','Express','React','Node.js'],
+      gh:'https://github.com/RajiSh21',
+      live:'#'
+    },
+    {
+      emoji:'🛡️',
+      title:'Network Intrusion Detector',
+      category:'ml',
+      desc:'A live network threat detection system that analyzes traffic streams in real time to identify suspicious behavior, classify attacks, and trigger alerts.',
+      tags:['Python','Network Security','ML','Real-time Detection'],
+      gh:'https://github.com/RajiSh21',
+      live:'#'
+    },
+    {
+      emoji:'💼',
+      title:'Personal Portfolio Website',
+      category:'web',
+      desc:'A modern and responsive portfolio web project built with React to showcase my education, skills, projects, and professional profile.',
+      tags:['React','JavaScript','CSS','Responsive UI'],
+      gh:'https://github.com/RajiSh21',
+      live:'#'
+    },
   ]
   const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter)
   return (
@@ -257,7 +292,7 @@ function Projects() {
       <div className="container">
         <div className="section-header" data-aos=""><span className="section-tag">What I've Built</span><h2 className="section-title">Projects</h2></div>
         <div className="project-filters" data-aos="">
-          {['all','web','ml','mobile'].map(f=>(
+          {['all','web','ml'].map(f=>(
             <button key={f} className={`filter-btn${filter===f?' active':''}`} onClick={()=>setFilter(f)}>{f.charAt(0).toUpperCase()+f.slice(1)}</button>
           ))}
         </div>

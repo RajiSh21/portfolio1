@@ -467,23 +467,41 @@ input, textarea { font-family: inherit; }
   animation: pulse 2s ease-in-out infinite;
 }
 .timeline-card {
+  position: relative;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 18px;
   padding: 24px 28px;
-  transition: box-shadow var(--transition), border-color var(--transition);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+}
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--gradient);
 }
 .timeline-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 4px 24px var(--accent-glow);
+  box-shadow: 0 16px 32px var(--accent-glow);
+  transform: translateY(-3px);
 }
 .timeline-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, var(--border));
+  border-radius: 999px;
+  padding: 4px 12px;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 .timeline-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
 .timeline-place { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
@@ -805,6 +823,25 @@ a.contact-value:hover { color: var(--accent); }
 
   .exp-card { flex-direction: column; }
   .exp-header { flex-direction: column; gap: 4px; }
+
+  .timeline {
+    max-width: 100%;
+  }
+  .timeline::before {
+    left: 12px;
+  }
+  .timeline-item {
+    padding-left: 38px;
+    margin-bottom: 28px;
+  }
+  .timeline-dot {
+    left: 4px;
+    width: 16px;
+    height: 16px;
+  }
+  .timeline-card {
+    padding: 18px;
+  }
 
   .back-to-top { bottom: 20px; right: 20px; }
 }
