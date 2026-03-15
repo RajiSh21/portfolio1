@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
 /* ============================================================
    PORTFOLIO STYLES  –  Modern dark/light theme
    ============================================================ */
@@ -985,3 +987,466 @@ a.contact-value:hover { color: var(--accent); }
   text-decoration: none;
 }
 .back-to-portfolio:hover { text-decoration: underline; }
+
+/* ── Animated UX Refresh (Portfolio Scoped) ───────────────── */
+:root {
+  --mouse-x: 50vw;
+  --mouse-y: 50vh;
+}
+
+body {
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(1000px circle at 8% -8%, rgba(255, 102, 71, 0.18), transparent 55%),
+    radial-gradient(800px circle at 88% 5%, rgba(38, 198, 218, 0.16), transparent 60%),
+    var(--bg);
+}
+
+.portfolio-shell {
+  --accent: #ff6a3d;
+  --accent-2: #1dc0d8;
+  --accent-glow: rgba(255, 106, 61, 0.32);
+  --gradient: linear-gradient(124deg, #ff6a3d 0%, #ffc145 45%, #1dc0d8 100%);
+  position: relative;
+  isolation: isolate;
+}
+
+.portfolio-shell .code-body,
+.portfolio-shell .nav-brand,
+.portfolio-shell .code-title {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.interactive-glow {
+  position: fixed;
+  width: 360px;
+  height: 360px;
+  border-radius: 999px;
+  left: calc(var(--mouse-x) - 180px);
+  top: calc(var(--mouse-y) - 180px);
+  background: radial-gradient(circle, rgba(255, 122, 34, 0.2), rgba(255, 122, 34, 0));
+  pointer-events: none;
+  z-index: 0;
+  transition: left 90ms linear, top 90ms linear;
+}
+
+.portfolio-shell .navbar {
+  border-bottom: 1px solid transparent;
+}
+
+.portfolio-shell .navbar.scrolled {
+  border-bottom-color: var(--border);
+}
+
+.brainrot-toggle {
+  margin-left: 10px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+}
+
+.brainrot-toggle:hover,
+.brainrot-toggle.active {
+  background: var(--gradient);
+  color: #111;
+  border-color: transparent;
+  transform: translateY(-1px) scale(1.03);
+}
+
+.hero-section {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.hero-name {
+  text-shadow: 0 14px 40px rgba(0, 0, 0, 0.36);
+}
+
+.chaos-badge {
+  display: inline-flex;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.chaos-badge.on {
+  color: #111;
+  border-color: transparent;
+  background: var(--gradient);
+}
+
+.portfolio-shell .btn {
+  border-radius: 14px;
+}
+
+.portfolio-shell .btn:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.portfolio-shell .section {
+  position: relative;
+}
+
+.portfolio-shell .section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(460px circle at 20% 0%, rgba(255, 99, 71, 0.07), transparent 58%);
+  pointer-events: none;
+}
+
+.portfolio-shell .about-img-wrapper,
+.portfolio-shell .timeline-card,
+.portfolio-shell .exp-card,
+.portfolio-shell .project-card,
+.portfolio-shell .achievement-card,
+.portfolio-shell .contact-form,
+.portfolio-shell .contact-info {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-shell .about-img-wrapper::after,
+.portfolio-shell .timeline-card::after,
+.portfolio-shell .exp-card::after,
+.portfolio-shell .project-card::after,
+.portfolio-shell .achievement-card::after,
+.portfolio-shell .contact-form::after,
+.portfolio-shell .contact-info::after {
+  content: '';
+  position: absolute;
+  inset: -120% 30% auto -30%;
+  height: 200%;
+  transform: rotate(16deg);
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.07), transparent);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.portfolio-shell .about-img-wrapper:hover::after,
+.portfolio-shell .timeline-card:hover::after,
+.portfolio-shell .exp-card:hover::after,
+.portfolio-shell .project-card:hover::after,
+.portfolio-shell .achievement-card:hover::after,
+.portfolio-shell .contact-form:hover::after,
+.portfolio-shell .contact-info:hover::after {
+  transform: translateX(75%) rotate(16deg);
+}
+
+.portfolio-shell .about-img-wrapper {
+  width: min(360px, 100%);
+  margin: 0 auto;
+  border-radius: 26px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, var(--surface) 0%, var(--surface-2) 100%);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.24);
+}
+
+.portfolio-shell .about-img-placeholder {
+  min-height: 300px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(130deg, rgba(255, 106, 61, 0.22), rgba(29, 192, 216, 0.18)),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18));
+}
+
+.portfolio-shell .about-profile-img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio-shell .about-fallback-icon {
+  color: var(--text);
+}
+
+.portfolio-shell .skills-grid {
+  gap: 14px;
+}
+
+.portfolio-shell .skill-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.portfolio-shell .skill-group h4 {
+  margin-bottom: 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.portfolio-shell .skill-tag,
+.portfolio-shell .project-tag {
+  display: inline-flex;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  font-size: 0.78rem;
+}
+
+.portfolio-shell .experience-list,
+.portfolio-shell .achievements-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.portfolio-shell .project-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.portfolio-shell .project-card,
+.portfolio-shell .achievement-card,
+.portfolio-shell .exp-card,
+.portfolio-shell .timeline-card,
+.portfolio-shell .contact-form,
+.portfolio-shell .contact-info {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent), var(--surface);
+  backdrop-filter: blur(2px);
+}
+
+.portfolio-shell .project-card {
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.portfolio-shell .project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+.portfolio-shell .project-emoji {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.portfolio-shell .project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.76rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: var(--text-muted);
+}
+
+.portfolio-shell .project-link:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.portfolio-shell .project-link.live {
+  background: color-mix(in srgb, var(--accent) 20%, var(--surface));
+}
+
+.portfolio-shell .achievement-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.portfolio-shell .achievement-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--accent) 22%, var(--surface));
+  flex-shrink: 0;
+}
+
+.portfolio-shell .achievement-sub {
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin: 4px 0 8px;
+}
+
+.portfolio-shell .contact-info,
+.portfolio-shell .contact-form {
+  border-radius: 20px;
+  padding: 26px;
+}
+
+.portfolio-shell .contact-details {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.portfolio-shell .contact-item {
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface-2);
+}
+
+.portfolio-shell .contact-social {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+}
+
+.portfolio-shell .contact-social:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.portfolio-shell .footer {
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.2));
+}
+
+.portfolio-shell .footer-content {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+}
+
+.brainrot-stickers {
+  position: fixed;
+  inset: auto 18px 18px auto;
+  display: grid;
+  gap: 6px;
+  z-index: 998;
+}
+
+.brainrot-chip {
+  --delay: calc(var(--i) * 120ms);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+  animation: bobble 2.5s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes bobble {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-4px) rotate(1deg); }
+  65% { transform: translateY(3px) rotate(-1deg); }
+}
+
+.portfolio-shell.brainrot-mode .blob {
+  opacity: 0.28;
+  filter: blur(44px) saturate(1.4);
+}
+
+.portfolio-shell.brainrot-mode .hero-name,
+.portfolio-shell.brainrot-mode .section-title {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.portfolio-shell.brainrot-mode .project-card,
+.portfolio-shell.brainrot-mode .achievement-card,
+.portfolio-shell.brainrot-mode .exp-card,
+.portfolio-shell.brainrot-mode .timeline-card {
+  animation: cardJitter 3.8s ease-in-out infinite;
+}
+
+@keyframes cardJitter {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-2px) rotate(0.3deg); }
+}
+
+.mode-brainrot {
+  cursor: crosshair;
+}
+
+@media (max-width: 900px) {
+  .portfolio-shell .nav-links.open {
+    backdrop-filter: blur(12px);
+  }
+
+  .portfolio-shell .project-filters {
+    flex-wrap: wrap;
+  }
+
+  .portfolio-shell .footer-content {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .brainrot-toggle {
+    display: none;
+  }
+
+  .interactive-glow {
+    width: 240px;
+    height: 240px;
+    left: calc(var(--mouse-x) - 120px);
+    top: calc(var(--mouse-y) - 120px);
+  }
+
+  .brainrot-stickers {
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .brainrot-chip {
+    font-size: 0.65rem;
+    padding: 5px 8px;
+  }
+
+  .portfolio-shell .about-img-wrapper {
+    width: 100%;
+    padding: 18px;
+  }
+
+  .portfolio-shell .about-img-placeholder {
+    min-height: 230px;
+  }
+
+  .portfolio-shell .about-profile-img {
+    min-height: 230px;
+  }
+}

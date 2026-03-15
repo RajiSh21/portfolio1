@@ -45,7 +45,7 @@ function useAOS() {
 }
 
 /* ── Navbar ──────────────────────────────────────────────── */
-function Navbar({ theme, toggleTheme }) {
+function Navbar({ theme, toggleTheme, brainrotMode, toggleBrainrot }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
@@ -84,6 +84,9 @@ function Navbar({ theme, toggleTheme }) {
       <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
         <span className="theme-icon">{theme === 'dark' ? '🌙' : '☀️'}</span>
       </button>
+      <button className={`brainrot-toggle${brainrotMode ? ' active' : ''}`} onClick={toggleBrainrot} aria-label="Toggle brainrot mode">
+        {brainrotMode ? 'Chaos On' : 'Chaos Off'}
+      </button>
       <button className={`hamburger${menuOpen ? ' open' : ''}`} onClick={() => setMenuOpen(o => !o)} aria-label="Open menu">
         <span/><span/><span/>
       </button>
@@ -92,7 +95,7 @@ function Navbar({ theme, toggleTheme }) {
 }
 
 /* ── Hero Section ────────────────────────────────────────── */
-function Hero() {
+function Hero({ brainrotMode }) {
   const text = useTypewriter(['Full Stack Developer','UI/UX Enthusiast','Problem Solver','Open Source Contributor','Cloud Engineer'])
   return (
     <section id="home" className="section hero-section">
@@ -100,8 +103,9 @@ function Hero() {
         <div className="blob blob-1"/><div className="blob blob-2"/><div className="blob blob-3"/>
       </div>
       <div className="hero-content">
+        <p className={`chaos-badge${brainrotMode ? ' on' : ''}`}>Brainrot mode: {brainrotMode ? 'ON' : 'OFF'}</p>
         <p className="hero-greeting">👋 Hello, I'm</p>
-        <h1 className="hero-name">Raji <span className="accent">Sh</span></h1>
+        <h1 className="hero-name">Raji<span className="accent">Sh</span></h1>
         <div className="hero-roles">
           <span className="static-text">I'm a </span>
           <span className="dynamic-text">{text}</span>
@@ -126,7 +130,7 @@ function Hero() {
           </div>
           <pre className="code-body"><code>
 {`const developer = {
-  name: "Raji Sh",
+  name: "RajiSh",
   passion: "Building great UX",
   skills: ["React", "Node.js",
             "Python", "AWS"],
@@ -145,8 +149,31 @@ function Hero() {
   )
 }
 
+function BrainrotStickers({ enabled }) {
+  if (!enabled) return null
+  const chips = ['100%', 'No Cap', 'Hyperfocus', 'Ship It', 'Pixel Goblin', 'Certified']
+  return (
+    <div className="brainrot-stickers" aria-hidden="true">
+      {chips.map((chip, idx) => (
+        <span className="brainrot-chip" style={{ '--i': idx }} key={chip}>{chip}</span>
+      ))}
+    </div>
+  )
+}
+
 /* ── About ─────────────────────────────────────────────────── */
 function About() {
+  function handleProfileImageError(e) {
+    const img = e.currentTarget
+    if (img.dataset.fallback !== 'github') {
+      img.dataset.fallback = 'github'
+      img.src = 'https://avatars.githubusercontent.com/RajiSh21?v=4'
+      return
+    }
+    img.classList.add('hidden')
+    img.nextElementSibling?.classList.remove('hidden')
+  }
+
   return (
     <section id="about" className="section">
       <div className="container">
@@ -158,10 +185,17 @@ function About() {
           <div className="about-left" data-aos="">
             <div className="about-img-wrapper">
               <div className="about-img-placeholder">
-                <svg viewBox="0 0 24 24" fill="currentColor" style={{width:80,height:80,opacity:0.3}}><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                <img
+                  src="/raji-profile.jpg"
+                  alt="RajiSh portrait"
+                  className="about-profile-img"
+                  loading="lazy"
+                  onError={handleProfileImageError}
+                />
+                <svg className="about-fallback-icon hidden" viewBox="0 0 24 24" fill="currentColor" style={{width:80,height:80,opacity:0.3}}><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
               </div>
-              <div className="about-badge badge-1"><span className="badge-num">2+</span><span className="badge-label">Years Exp</span></div>
-              <div className="about-badge badge-2"><span className="badge-num">15+</span><span className="badge-label">Projects</span></div>
+              <div className="about-badge badge-1"><span className="badge-num">2+</span><span className="badge-label">Years Experience</span></div>
+              <div className="about-badge badge-2"><span className="badge-num">15+</span><span className="badge-label">Projects Built</span></div>
             </div>
           </div>
           <div className="about-right" data-aos="">
@@ -376,8 +410,8 @@ function Contact() {
           <div className="contact-info" data-aos="">
             <p>I'm always open to interesting conversations, collaborative projects, or just a friendly chat about tech. Drop me a message and I'll get back to you within 24 hours!</p>
             <div className="contact-details">
-              <div className="contact-item"><span className="contact-icon">📧</span><div><p>Email</p><a href="mailto:raji@example.com">raji@example.com</a></div></div>
-              <div className="contact-item"><span className="contact-icon">📍</span><div><p>Location</p><p>Bengaluru, India</p></div></div>
+              <div className="contact-item"><span className="contact-icon">📧</span><div><p>Email</p><a href="mailto:rajishpandey508@gmail.com">rajishpandey508@gmail.com</a></div></div>
+              <div className="contact-item"><span className="contact-icon">📍</span><div><p>Location</p><p>Bhaktapur, Nepal</p></div></div>
               <div className="contact-item"><span className="contact-icon">🕐</span><div><p>Response Time</p><p>Within 24 hours</p></div></div>
             </div>
             <div className="contact-socials">
@@ -409,7 +443,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>Designed & built with ❤️ by Raji Sh</p>
+        <p>Designed & built with ❤️ by RajiSh</p>
         <p>© 2024 All rights reserved.</p>
       </div>
     </footer>
@@ -419,12 +453,41 @@ function Footer() {
 /* ── Main Portfolio Page ────────────────────────────────────── */
 export default function Portfolio() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark')
+  const [brainrotMode, setBrainrotMode] = useState(() => localStorage.getItem('brainrotMode') === 'on')
   useAOS()
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
   }, [theme])
+
+  useEffect(() => {
+    localStorage.setItem('brainrotMode', brainrotMode ? 'on' : 'off')
+    document.body.classList.toggle('mode-brainrot', brainrotMode)
+    return () => document.body.classList.remove('mode-brainrot')
+  }, [brainrotMode])
+
+  useEffect(() => {
+    function onMove(event) {
+      document.documentElement.style.setProperty('--mouse-x', `${event.clientX}px`)
+      document.documentElement.style.setProperty('--mouse-y', `${event.clientY}px`)
+    }
+    window.addEventListener('pointermove', onMove, { passive: true })
+    return () => window.removeEventListener('pointermove', onMove)
+  }, [])
+
+  useEffect(() => {
+    const backToTopBtn = document.getElementById('back-to-top')
+    if (!backToTopBtn) return undefined
+
+    function onScroll() {
+      backToTopBtn.classList.toggle('visible', window.scrollY > 460)
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   // Track visit on mount
   useEffect(() => {
@@ -434,11 +497,13 @@ export default function Portfolio() {
   }, [])
 
   function toggleTheme() { setTheme(t => t === 'dark' ? 'light' : 'dark') }
+  function toggleBrainrot() { setBrainrotMode(v => !v) }
 
   return (
-    <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <Hero />
+    <div className={`portfolio-shell${brainrotMode ? ' brainrot-mode' : ''}`}>
+      <div className="interactive-glow" aria-hidden="true" />
+      <Navbar theme={theme} toggleTheme={toggleTheme} brainrotMode={brainrotMode} toggleBrainrot={toggleBrainrot} />
+      <Hero brainrotMode={brainrotMode} />
       <About />
       <Education />
       <Experience />
@@ -446,7 +511,8 @@ export default function Portfolio() {
       <Achievements />
       <Contact />
       <Footer />
+      <BrainrotStickers enabled={brainrotMode} />
       <button className="back-to-top" id="back-to-top" onClick={()=>window.scrollTo({top:0,behavior:'smooth'})} aria-label="Back to top">↑</button>
-    </>
+    </div>
   )
 }
