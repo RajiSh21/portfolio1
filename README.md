@@ -84,3 +84,6 @@ Navigate to http://localhost:5173/admin/login → click "Create admin account" (
 - ✅ Analytics dashboard (total visits, daily chart, recent visitors table)
 - ✅ One admin account setup
 - ✅ Deployment-ready for Vercel and Netlify
+
+
+Project has been updated and completed all the stufs but there esixt still some of the user information which need to be modified as per the user 
