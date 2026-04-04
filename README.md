@@ -86,4 +86,5 @@ Navigate to http://localhost:5173/admin/login → click "Create admin account" (
 - ✅ Deployment-ready for Vercel and Netlify
 
 
-Project has been updated and completed all the stufs but there esixt still some of the user information which need to be modified as per the user 
+Project has been updated and completed all the stufs but there esixt still some of the user information which need to be modified as per the user which will be modified in the future 
+
