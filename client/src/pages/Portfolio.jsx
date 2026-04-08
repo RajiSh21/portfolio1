@@ -264,9 +264,9 @@ function Education() {
 /* ── Experience ────────────────────────────────────────────── */
 function Experience() {
   const jobs = [
-    { period:'2025 – Present', role:'MERN Developer', company:'Smart Campus Web App', type:'Project Role', points:['Designed and built the complete MERN architecture for student, faculty, and admin workflows','Implemented role-based authentication, protected routes, and modular APIs for secure operations','Delivered responsive dashboards for notices, attendance, and events with clean reusable components'] },
-    { period:'2024 – 2025', role:'Frontend Lead', company:'Personal Portfolio Website', type:'Project Role', points:['Created a modern single-page portfolio in React with smooth navigation and section-based storytelling','Structured reusable UI blocks for education, projects, achievements, and contact for easy future updates','Optimized user experience with responsive layouts, clear hierarchy, and performance-focused rendering'] },
-    { period:'2024', role:'ML & Security Contributor', company:'Network Intrusion Detector', type:'Project Role', points:['Built the data processing and model evaluation pipeline for real-time threat classification','Contributed attack-pattern feature engineering to improve detection confidence and reduce noisy alerts','Connected model outputs with an actionable interface so suspicious traffic could be monitored quickly'] },
+    { period:'2024 – 2025', role:'MERN Developer', company:'Smart Campus Web App', type:'Project Role', points:['Designed and built the complete MERN architecture for student, faculty, and admin workflows','Implemented role-based authentication, protected routes, and modular APIs for secure operations','Delivered responsive dashboards for notices, attendance, and events with clean reusable components'] },
+    { period:'2025 – 2026', role:'Frontend Lead', company:'Personal Portfolio Website', type:'Project Role', points:['Created a modern single-page portfolio in React with smooth navigation and section-based storytelling','Structured reusable UI blocks for education, projects, achievements, and contact for easy future updates','Optimized user experience with responsive layouts, clear hierarchy, and performance-focused rendering'] },
+    { period:'2026 – Present', role:'ML & Security Contributor', company:'Network Intrusion Detector', type:'Project Role', points:['Built the data processing and model evaluation pipeline for real-time threat classification','Contributed attack-pattern feature engineering to improve detection confidence and reduce noisy alerts','Connected model outputs with an actionable interface so suspicious traffic could be monitored quickly'] },
   ]
   return (
     <section id="experience" className="section">
@@ -275,9 +275,13 @@ function Experience() {
         <div className="experience-list">
           {jobs.map((job, i) => (
             <div className="exp-card" data-aos="" key={i}>
-              <div className="exp-left"><span className="exp-period">{job.period}</span><span className={`exp-type ${job.type.toLowerCase()}`}>{job.type}</span></div>
               <div className="exp-right">
-                <h3>{job.role}</h3><p className="exp-company">{job.company}</p>
+                <div className="exp-headline">
+                  <h3>{job.role}</h3>
+                  <span className={`exp-type ${job.type.toLowerCase()}`}>{job.type}</span>
+                </div>
+                <p className="exp-company">{job.company}</p>
+                <p className="exp-period">Timeline: {job.period}</p>
                 <ul className="exp-points">{job.points.map((p,j)=><li key={j}>{p}</li>)}</ul>
               </div>
             </div>
@@ -296,6 +300,7 @@ function Projects() {
       emoji:'🏫',
       title:'Smart Campus Web App',
       category:'web',
+      timeline:'Completed (2024 - 2025)',
       desc:'A complete MERN stack web platform for campus management with student profiles, attendance, notices, events, and role-based admin dashboards.',
       tags:['MongoDB','Express','React','Node.js'],
       gh:'https://github.com/RajiSh21',
@@ -305,6 +310,7 @@ function Projects() {
       emoji:'🛡️',
       title:'Network Intrusion Detector',
       category:'ml',
+      timeline:'In Progress (2026 - Present)',
       desc:'A live network threat detection system that analyzes traffic streams in real time to identify suspicious behavior, classify attacks, and trigger alerts.',
       tags:['Python','Network Security','ML','Real-time Detection'],
       gh:'https://github.com/RajiSh21',
@@ -314,6 +320,7 @@ function Projects() {
       emoji:'💼',
       title:'Personal Portfolio Website',
       category:'web',
+      timeline:'Completed (2025 - 2026)',
       desc:'A modern and responsive portfolio web project built with React to showcase my education, skills, projects, and professional profile.',
       tags:['React','JavaScript','CSS','Responsive UI'],
       gh:'https://github.com/RajiSh21',
@@ -336,7 +343,10 @@ function Projects() {
               <div className="project-emoji">{p.emoji}</div>
               <div className="project-info">
                 <div className="project-header">
-                  <h3>{p.title}</h3>
+                  <div>
+                    <h3>{p.title}</h3>
+                    <p className="project-timeline">Timeline: {p.timeline}</p>
+                  </div>
                   <div className="project-links">
                     <a href={p.gh} className="project-link" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
                     <a href={p.live} className="project-link live">Live demo ↗</a>

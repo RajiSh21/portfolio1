@@ -512,8 +512,11 @@ input, textarea { font-family: inherit; }
 
 /* ── Experience ─────────────────────────────────────────────── */
 .exp-grid { display: flex; flex-direction: column; gap: 24px; max-width: 840px; margin: 0 auto; }
+.experience-list { display: grid; gap: 20px; max-width: 900px; margin: 0 auto; }
 .exp-card {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 20px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -552,6 +555,46 @@ input, textarea { font-family: inherit; }
   padding: 4px 12px;
   border-radius: 20px;
   white-space: nowrap;
+}
+.exp-left {
+  min-width: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.exp-right { flex: 1; }
+.exp-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.exp-type {
+  display: inline-flex;
+  width: fit-content;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.exp-points {
+  margin-top: 12px;
+  padding-left: 18px;
+}
+.exp-points li {
+  margin-bottom: 8px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+.exp-points li::marker { color: var(--accent); }
+.exp-right .exp-period {
+  margin-top: 10px;
+  display: inline-flex;
 }
 .exp-list { padding-left: 18px; margin-bottom: 14px; }
 .exp-list li {
@@ -824,6 +867,7 @@ a.contact-value:hover { color: var(--accent); }
   .form-row { grid-template-columns: 1fr; }
 
   .exp-card { flex-direction: column; }
+  .exp-left { min-width: 0; }
   .exp-header { flex-direction: column; gap: 4px; }
 
   .timeline {
@@ -1241,6 +1285,20 @@ body {
   align-items: center;
   margin-bottom: 10px;
   gap: 12px;
+}
+
+.portfolio-shell .project-timeline {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface));
 }
 
 .portfolio-shell .project-emoji {
