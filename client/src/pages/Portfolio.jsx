@@ -264,9 +264,9 @@ function Education() {
 /* ── Experience ────────────────────────────────────────────── */
 function Experience() {
   const jobs = [
-    { period:'Jan 2024 – Present', role:'Software Engineer', company:'TechCorp Solutions', type:'Full-time', points:['Led development of a microservices-based e-commerce platform serving 200K+ daily users','Reduced page load time by 40% through code splitting, lazy loading, and CDN optimization','Mentored 3 junior developers and introduced team-wide code review practices'] },
-    { period:'Jun – Dec 2023', role:'Full Stack Intern', company:'StartupXYZ', type:'Internship', points:['Built a real-time dashboard with WebSocket integration for live data visualization','Developed RESTful APIs serving 50K+ requests/day with 99.9% uptime','Implemented automated CI/CD pipeline, cutting deployment time by 60%'] },
-    { period:'Feb – May 2023', role:'Research Intern', company:'IIT Research Lab', type:'Research', points:['Researched ML-based anomaly detection in network traffic data','Published co-authored paper at IEEE ICTCS 2023 conference','Achieved 94.2% accuracy on intrusion detection dataset using ensemble methods'] },
+    { period:'2025 – Present', role:'MERN Developer', company:'Smart Campus Web App', type:'Project Role', points:['Designed and built the complete MERN architecture for student, faculty, and admin workflows','Implemented role-based authentication, protected routes, and modular APIs for secure operations','Delivered responsive dashboards for notices, attendance, and events with clean reusable components'] },
+    { period:'2024 – 2025', role:'Frontend Lead', company:'Personal Portfolio Website', type:'Project Role', points:['Created a modern single-page portfolio in React with smooth navigation and section-based storytelling','Structured reusable UI blocks for education, projects, achievements, and contact for easy future updates','Optimized user experience with responsive layouts, clear hierarchy, and performance-focused rendering'] },
+    { period:'2024', role:'ML & Security Contributor', company:'Network Intrusion Detector', type:'Project Role', points:['Built the data processing and model evaluation pipeline for real-time threat classification','Contributed attack-pattern feature engineering to improve detection confidence and reduce noisy alerts','Connected model outputs with an actionable interface so suspicious traffic could be monitored quickly'] },
   ]
   return (
     <section id="experience" className="section">
@@ -356,12 +356,12 @@ function Projects() {
 /* ── Achievements ──────────────────────────────────────────── */
 function Achievements() {
   const items = [
-    { icon:'🏆', title:'1st Place – National Hackathon', sub:'HackIndia 2023 • 500+ Teams', desc:'Led a 4-member team to victory by building an AI-powered accessibility tool for visually impaired users in 36 hours.' },
-    { icon:'📄', title:'Research Paper Publication', sub:'IEEE ICTCS 2023', desc:'Published "Early Disease Detection using Convolutional Neural Networks" — cited 18 times since publication.' },
-    { icon:'☁️', title:'AWS Certified Solutions Architect', sub:'Amazon Web Services • 2023', desc:'Earned professional cloud certification validating expertise in designing scalable, resilient AWS architectures.' },
-    { icon:'🌟', title:'Google Summer of Code Contributor', sub:'Google • Open Source • 2023', desc:'Selected from 20,000+ applicants. Contributed 3,200+ lines of code to a widely-used open-source project.' },
-    { icon:'💡', title:'Smart India Hackathon Finalist', sub:'Ministry of Education, India • 2022', desc:'Selected as top-30 finalists nationwide with a smart waste management solution using computer vision.' },
-    { icon:'🎓', title:'Merit Scholarship – 4 Consecutive Years', sub:'NIT • 2020–2024', desc:'Awarded full merit scholarship for maintaining a CGPA above 9.0 throughout the undergraduate program.' },
+    { icon:'🚀', title:'Built With Consistency', sub:'Portfolio + Product Work', desc:'I keep shipping, refining, and learning in public. Progress is my habit, not my mood.' },
+    { icon:'🧠', title:'Problem Solver Mindset', sub:'Code, Debug, Improve', desc:'Every bug is feedback, every fix is growth, and every version is stronger than the last.' },
+    { icon:'🤝', title:'Team-First Contributor', sub:'Collaboration Driven', desc:'I value clear communication, thoughtful code reviews, and building software that helps people.' },
+    { icon:'🎯', title:'Yet To Achieve: Global Impact Project', sub:'Next Milestone', desc:'I am working toward building one product that solves a real problem at scale and positively impacts millions.' },
+    { icon:'🔥', title:'Motivation Line', sub:'Daily Reminder', desc:'Dream big, start small, stay consistent. Greatness is built quietly, one focused day at a time.' },
+    { icon:'🌱', title:'Yet To Achieve: Open Source Legacy', sub:'Long-Term Goal', desc:'I aim to contribute to and maintain open-source tools that students and developers rely on worldwide.' },
   ]
   return (
     <section id="achievements" className="section">
